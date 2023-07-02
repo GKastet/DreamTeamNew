@@ -2,20 +2,20 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://foxcommanders.github.io/DreamTeam/",
+  "homepage": "https://GKastet.github.io/DreamTeamNew/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /DreamTeam/"
+    "build": "parcel build src/*.html --public-url /DreamTeamNew/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Foxcommanders/DreamTeam.git"
+    "url": "git+https://github.com/GKastet/DreamTeamNew.git"
   },
   "keywords": [],
-  "author": "Dmytro Kisel <dmytrokisell@gmail.com>",
+  "author": "our team",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Foxcommanders/DreamTeam/issues"
+    "url": "https://github.com/GKastet/DreamTeamNew/issues"
   },
   "dependencies": {
     "axios": "^1.4.0",
