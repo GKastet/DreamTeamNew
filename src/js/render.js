@@ -21,16 +21,27 @@ function clipBookTitle(title) {
   return clippedTitle;
 }
 
-export function createCategoriesMarkup(arr) {
-  return arr
-    // .map(({ list_name }) => {
-    //   return (markup = `<li class="category-list-item" data-id="${list_name}">${list_name}</li>`);
-      .map(({ list_name }) => {
-        const markup = `<li class="category-list-item" data-id="${list_name}">${list_name}</li>`
-        return markup;
+// export function createCategoriesMarkup(arr) {
+
+//   return arr
+//     // .map(({ list_name }) => {
+//     //   return (markup = `<li class="category-list-item" data-id="${list_name}">${list_name}</li>`);
+//       .map(({ list_name }) => {
+//         const markup = `<li class="category-list-item" data-id="${list_name}">${list_name}</li>`;
+//         return markup;
       
+//     })
+//     .join('');
+//   }
+
+export function createCategoriesMarkup(arr) {
+  const markup = arr
+    .map(({ list_name }) => {
+      const markup = `<li class="category-list-item" data-id="${list_name}">${list_name}</li>`;
+      return markup;
     })
     .join('');
+    return markup
 }
 
 export function renderBooks(arr) {
