@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://GKastet.github.io/DreamTeamNew/", 
+  "homepage": "https://GKastet.github.io/DreamTeamNew/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /DreamTeamNew/"
@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "basiclightbox": "^5.0.4",
+    "firebase": "^9.23.0",
     "lazysizes": "^5.3.2",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
@@ -30,7 +32,8 @@
     "buffer": "^6.0.3",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
-    "posthtml-include": "^1.7.4"
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }

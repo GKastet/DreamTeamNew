@@ -62,10 +62,13 @@ function createMarkup(book) {
     <p class="modal-check-text ${classForP}">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>
   `;
   modal.innerHTML = markup;
+  const modalBtn = document.querySelector('.modal-sub-btn');
+  const user = localStorage.getItem('user');
+  user ? modalBtn.classList.remove('display') : modalBtn.classList.add('display');
 };
 export async function showModal(bookId) {
   const book = await getBookById(bookId);
-  createMarkup(book);
+  createMarkup(book);  
   document.body.classList.remove('is-hidden')
   document.body.classList.add('lock-body');
   addListener();

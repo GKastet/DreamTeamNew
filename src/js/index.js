@@ -8,3 +8,4 @@ import './container.js';
 import './scrollUp.js';
 import './theme-swich.js';
 import './loader.js';
+import './firebase.js'
