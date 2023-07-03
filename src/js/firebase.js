@@ -19,41 +19,64 @@ const elems = {
   pageShoplist: document.querySelector('#shoplist-link'),
   divSignBtns: document.querySelector('.signInUp'),
   logOutBtn: document.querySelector('.header-btn'),
-  modalBtn: document.querySelector('.modal-sub-btn')  
+  modalBtn: document.querySelector('.modal-sub-btn'),
 };
 
 elems.signIn.addEventListener('click', handlerOpenSignInModal);
 
 function handlerOpenSignInModal() {
   instance = basicLightbox.create(`
-	<form class="js-signIn-form" autocomplete="off">
-        
-        <input type="text" name="email" placeholder="EMAIL">
-        <input type="password" name="password" placeholder="Password">
-        <button class="btn" type="submit">SIGN UP</button>
-      </form>
+	<form class="js-signIn-form sign-form" autocomplete="off">
+        <button class="close-btn" type="button">x
+   </button>
+   
+      <div class="submit-fields">
+        <input class="sign-input" type="text" name="email" placeholder="EMAIL">
+        <input class="sign-input" type="password" name="password" placeholder="Password">
+        <button class="btn sign-btn" type="submit">SIGN UP</button>
+      </div>
+  </form>
 `);
   instance.show();
+  const closeBtn = document.querySelector('.close-btn');
+  closeBtn.addEventListener('click', handlerCloseBtn);
   const signInForm = document.querySelector('.js-signIn-form');
-  console.log(signInForm);
   signInForm.addEventListener('submit', onLoginFormSubmit);
 }
 
 elems.signUp.addEventListener('click', handlerOpenSignUpModal);
 
 function handlerOpenSignUpModal() {
-  const instance = basicLightbox.create(`
-	<form class="js-signUp-form" autocomplete="off">
-        <input type="text" name="username" placeholder="NAME">
-        <input type="text" name="email" placeholder="EMAIL">
-        <input type="password" name="password" placeholder="Password">
-        <button class="btn" type="submit">SIGN UP</button>
+  instance = basicLightbox.create(`
+	<form class="js-signUp-form sign-form" autocomplete="off">
+  <button class="close-btn" type="button">x
+   </button>
+
+<div class="submit-fields">
+        <input class="sign-input user-name-input" type="text" name="username" placeholder="NAME">
+        <input class="sign-input user-mail-input" type="text" name="email" placeholder="EMAIL">
+        <input class="sign-input user-password-input" type="password" name="password" placeholder="Password">
+        <button class="btn sign-btn" type="submit">SIGN UP</button>
+        <div>
       </form>
 `);
-  instance.show();  
+  instance.show();
+  const closeBtn = document.querySelector('.close-btn');
+  closeBtn.addEventListener('click', handlerCloseBtn);
   const signUpForm = document.querySelector('.js-signUp-form');
-  console.log(signUpForm);
   signUpForm.addEventListener('submit', onSignUpFormSubmit);
+}
+
+function handlerCloseBtn() {
+  instance.close();
+}
+function hideModal() {
+  document.body.classList.remove('lock-body');
+  document.body.classList.add('is-hidden');
+}
+
+function onModalClose(e) {
+  if (e.key === 'Escape') hideModal();
 }
 
 // Your web app's Firebase configuration
@@ -72,7 +95,6 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
-
 async function onSignUpFormSubmit(e) {
   e.preventDefault();
 
@@ -90,36 +112,34 @@ async function onSignUpFormSubmit(e) {
         username,
         email,
       });
-    //   signOut(auth);
 
       Notify.success('Signed up!');
     })
     .catch(error => {
       Notify.failure(error.message);
     })
-    .finally(()=>{
-        instance.close();
-    })  
+    .finally(() => {
+      instance.close();
+    });
 }
 
 async function onLoginFormSubmit(e) {
   e.preventDefault();
 
   const {
-    email : { value : email},
-    password : {value : password}
-    } = e.currentTarget.elements;
+    email: { value: email },
+    password: { value: password },
+  } = e.currentTarget.elements;
 
   await signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
-      
       const user = userCredential.user;
       const currentDate = new Date();
 
       update(ref(database, 'users/' + user.uid), {
         last_login_date: currentDate,
       });
-      
+
       Notify.success('Logged in!', {
         timeout: 1500,
       });
@@ -127,12 +147,10 @@ async function onLoginFormSubmit(e) {
     .catch(error => {
       Notify.failure(error.message);
     })
-    .finally(()=>{
-        instance.close(); 
-    })
+    .finally(() => {
+      instance.close();
+    });
 }
-
-// signOut(auth);
 
 function onLogOutBtnClick(e) {
   signOut(auth);
@@ -140,19 +158,17 @@ function onLogOutBtnClick(e) {
 }
 
 onAuthStateChanged(auth, user => {
-        
-    if(user){      
-        localStorage.setItem('user', user.uid);
-        elems.logOutBtn.addEventListener('click', onLogOutBtnClick);              
-        elems.divSignBtns.classList.add('display');
-        elems.pageShoplist.classList.remove('display');        
-        elems.logOutBtn.classList.remove('display');
-
-    }else{
-        elems.divSignBtns.classList.remove('display');
-        elems.pageShoplist.classList.add('display');        
-        elems.logOutBtn.classList.add('display');
-        localStorage.removeItem('user')
-    }    
-    return
+  if (user) {
+    localStorage.setItem('user', user.uid);
+    elems.logOutBtn.addEventListener('click', onLogOutBtnClick);
+    elems.divSignBtns.classList.add('display');
+    elems.pageShoplist.classList.remove('display');
+    elems.logOutBtn.classList.remove('display');
+  } else {
+    elems.divSignBtns.classList.remove('display');
+    elems.pageShoplist.classList.add('display');
+    elems.logOutBtn.classList.add('display');
+    localStorage.removeItem('user');
+  }
+  return;
 });

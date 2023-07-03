@@ -59,6 +59,19 @@ body.dark .sign-up-btn {
   color: var(--main-white-color);
 }
 
+body.dark .sign-form {
+  background-color: var(--main-dark-color);
+}
+body.dark .sign-btn {
+  background-color: var(--main-white-color);
+  color: var(--main-dark-color);
+  border-color: transparent;
+}
+body.dark .sign-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--main-white-color);
+}
+
 .page-header {
   background-color: var(--main-white-color);
   border-radius: 0px 0px 8px 8px;
@@ -232,70 +245,158 @@ input:checked + .slider:before {
 .menu-button:hover .icon-cross {
   stroke: var(--accent-color);
 }
+// ================= autorisation ==============================
 
-.auth-btn {
+.signInUp {
   display: flex;
-  align-items: center;
-  padding-left: 12px;
-  padding-right: 12px;
-  color: var(--main-white-color);
-  background-color: var(--accent-color);
-  border: 1.5px solid var(--accent-color);
-  width: 184px;
-  height: 46px;
-  border-radius: 36px;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.44px;
-}
-.auth-img {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 37px;
-  height: 37px;
-  border-radius: 50%;
-  color: #fff;
-  background-color: var(--main-white-color);
-  margin-right: 9px;
-}
-.auth-user-icon {
-  fill: var(--accent-color);
+  gap: 8px;
 }
 
-.auth-icon {
-  fill: var(--main-white-color);
-  margin-left: 4px;
-}
-
-.unauth-btn {
+.divSignIn,
+.divSignUp {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 14px;
-  width: 184px;
+  padding: 14px 8px;
+  width: 92px;
   height: 46px;
   border-radius: 18px;
   font-weight: 500;
   line-height: 1.29;
   letter-spacing: -0.56px;
-}
 
-.log-out-btn {
   color: var(--main-dark-color);
   background-color: var(--main-white-color);
   border: 1.5px solid var(--main-dark-color);
 }
 
-.arrow-right-icon {
-  stroke: var(--another-accent-color);
+.sign-form {
+  width: 335px;
+  height: 384px;
+  padding-top: 14px;
+  background-color: var(--main-white-color);
+  border-radius: 18px;
 }
 
-.sign-up-btn {
-  color: var(--main-white-color);
-  background-color: var(--accent-color);
-  border: 1.5px solid var(--main-dark-color);
+.close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--main-dark-color);
+  margin-bottom: 6px;
+  margin-left: 301px;
+  cursor: pointer;
 }
+
+.submit-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.sign-input {
+  width: 295px;
+  height: 50px;
+  border-radius: 40px;
+  background-color: transparent;
+  border: 2px solid #f6f6f6;
+  width: 295px;
+  padding: 16px 173px 16px 24px;
+}
+
+// .user-name-input {
+// }
+
+// .user-mail-input {
+// }
+
+// .user-password-input {
+// }
+
+.sign-btn {
+  width: 295px;
+  height: 50px;
+  background-color: var(--main-dark-color);
+  color: var(--main-white-color);
+  padding: 16px auto;
+  border-radius: 40px;
+}
+
+.sign-btn:hover,
+.sign-btn:focus {
+  background-color: var(--accent-color);
+  color: var(--main-white-color);
+  border-color: var(--accent-color);
+}
+
+// .auth-btn {
+//   display: flex;
+//   align-items: center;
+//   padding-left: 12px;
+//   padding-right: 12px;
+//   color: var(--main-white-color);
+//   background-color: var(--accent-color);
+//   border: 1.5px solid var(--accent-color);
+//   width: 184px;
+//   height: 46px;
+//   border-radius: 36px;
+//   font-size: 22px;
+//   font-weight: 700;
+//   letter-spacing: -0.44px;
+// }
+// .auth-img {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   width: 37px;
+//   height: 37px;
+//   border-radius: 50%;
+//   color: #fff;
+//   background-color: var(--main-white-color);
+//   margin-right: 9px;
+// }
+// .auth-user-icon {
+//   fill: var(--accent-color);
+// }
+
+// .auth-icon {
+//   fill: var(--main-white-color);
+//   margin-left: 4px;
+// }
+
+// .unauth-btn {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 14px 14px;
+//   width: 184px;
+//   height: 46px;
+//   border-radius: 18px;
+//   font-weight: 500;
+//   line-height: 1.29;
+//   letter-spacing: -0.56px;
+// }
+
+// .log-out-btn {
+//   color: var(--main-dark-color);
+//   background-color: var(--main-white-color);
+//   border: 1.5px solid var(--main-dark-color);
+// }
+
+// .arrow-right-icon {
+//   stroke: var(--another-accent-color);
+// }
+
+// .sign-up-btn {
+//   color: var(--main-white-color);
+//   background-color: var(--accent-color);
+//   border: 1.5px solid var(--main-dark-color);
+// }
 
 // =============Mobile menu====================
 
@@ -445,6 +546,11 @@ input:checked + .slider:before {
   .page-header {
     margin: 0 auto;
   }
+
+  .signInUp {
+    display: none;
+  }
+
   .auth-btn {
     display: none;
   }
