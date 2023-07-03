@@ -10,8 +10,8 @@ import {
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import * as basicLightbox from 'basiclightbox';
-import 'basicLightbox/dist/basicLightbox.min.css';
-// import '';
+// import 'basicLightbox/dist/basicLightbox.min.css';
+
 let instance;
 const elems = {
   signIn: document.querySelector('.divSignIn'),
@@ -50,8 +50,7 @@ function handlerOpenSignUpModal() {
         <button class="btn" type="submit">SIGN UP</button>
       </form>
 `);
-  instance.show();
-  
+  instance.show();  
   const signUpForm = document.querySelector('.js-signUp-form');
   console.log(signUpForm);
   signUpForm.addEventListener('submit', onSignUpFormSubmit);
