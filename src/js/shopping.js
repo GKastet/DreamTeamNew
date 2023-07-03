@@ -156,10 +156,7 @@ function checkLocalStorage(arr) {
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
-    console.log('empty');
   } else {
-    // allBooksInfo(arr);
-    // refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
     refs.emptyList.classList.add('display');
     refs.bookList.classList.remove('display');    
   }
@@ -172,36 +169,11 @@ function checkLocalStorageDynamic(arr) {
     refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());    
     refs.emptyList.classList.remove('display');
     refs.bookList.classList.add('display');
-    console.log('empty');
   } else {
     allBooksInfo(arr);
-    //refs.bookList.insertAdjacentHTML('afterbegin', markUp(books, defaultBookData));
     refs.emptyList.classList.add('display');
     refs.bookList.classList.remove('display');    
   }
-  return;
-}
-
-refs.bookList.addEventListener('click', handlerDeleteBook);
-
-function handlerDeleteBook(evt) {
-  if (evt.target.nodeName !== 'BUTTON') {
-    return;
-  }
-  let newLocalStorage = booksLocalStorage;
-  const deleteBook = evt.target.parentNode.parentNode;  
-  const deleteBookId = deleteBook.dataset['id'];
-  const deleteIndex = newLocalStorage.indexOf(deleteBookId); 
-  newLocalStorage.splice(deleteIndex, 1);
-  deleteBook.remove();
-  localStorage.setItem('books', JSON.stringify(newLocalStorage));
-  newLocalStorage = JSON.parse(localStorage.getItem('books'));
-  if(!newLocalStorage.length){    
-    document.getElementById('tui-pagination-container').setAttribute('hidden', 'true');
-    refs.emptyList.insertAdjacentHTML('afterbegin', shoppingEmptyMarkup());
-    refs.emptyList.classList.remove('display');
-    refs.bookList.classList.add('display')    
-  }  
   return;
 }
 
@@ -213,4 +185,5 @@ window.addEventListener('resize',(e) => {
   //checkLocalStorageDynamic(booksLocalStorage);
   return width;   
 });
+
 
