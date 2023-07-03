@@ -31,7 +31,7 @@ function handlerOpenSignInModal() {
    </button>
    
       <div class="submit-fields">
-        <input class="sign-input" type="text" name="email" placeholder="EMAIL">
+        <input class="sign-input" type="text" name="email" maxlength = "30" placeholder="EMAIL">
         <input class="sign-input" type="password" name="password" placeholder="Password">
         <button class="btn sign-btn" type="submit">SIGN UP</button>
       </div>
@@ -53,8 +53,8 @@ function handlerOpenSignUpModal() {
    </button>
 
 <div class="submit-fields">
-        <input class="sign-input user-name-input" type="text" name="username" placeholder="NAME">
-        <input class="sign-input user-mail-input" type="text" name="email" placeholder="EMAIL">
+        <input class="sign-input user-name-input" type="text" maxlength = "30" name="username" placeholder="NAME">
+        <input class="sign-input user-mail-input" type="text" name="email" maxlength = "30" placeholder="EMAIL">
         <input class="sign-input user-password-input" type="password" name="password" placeholder="Password">
         <button class="btn sign-btn" type="submit">SIGN UP</button>
         <div>
