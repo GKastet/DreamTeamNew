@@ -369,28 +369,28 @@ input:checked + .slider:before {
 //   margin-left: 4px;
 // }
 
-// .unauth-btn {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding: 14px 14px;
-//   width: 184px;
-//   height: 46px;
-//   border-radius: 18px;
-//   font-weight: 500;
-//   line-height: 1.29;
-//   letter-spacing: -0.56px;
-// }
+.unauth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px;
+  width: 184px;
+  height: 46px;
+  border-radius: 18px;
+  font-weight: 500;
+  line-height: 1.29;
+  letter-spacing: -0.56px;
+}
 
-// .log-out-btn {
-//   color: var(--main-dark-color);
-//   background-color: var(--main-white-color);
-//   border: 1.5px solid var(--main-dark-color);
-// }
+.log-out-btn {
+  color: var(--main-dark-color);
+  background-color: var(--main-white-color);
+  border: 1.5px solid var(--main-dark-color);
+}
 
-// .arrow-right-icon {
-//   stroke: var(--another-accent-color);
-// }
+.arrow-right-icon {
+  stroke: var(--another-accent-color);
+}
 
 // .sign-up-btn {
 //   color: var(--main-white-color);
