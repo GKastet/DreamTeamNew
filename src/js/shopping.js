@@ -6,6 +6,7 @@ import './scrollUp.js';
 import './pagination.js';
 import './loader.js';
 import './theme-swich.js';
+import './firebase.js'
 
 import { shoppingEmptyMarkup } from './render.js';
 import {getBookById} from './api-request.js';
