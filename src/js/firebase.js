@@ -13,7 +13,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basicLightbox/dist/basicLightbox.min.css';
 // import '';
 let instance;
-const refs = {
+const elems = {
   signIn: document.querySelector('.divSignIn'),
   signUp: document.querySelector('.divSignUp'),
   pageShoplist: document.querySelector('#shoplist-link'),
@@ -22,9 +22,7 @@ const refs = {
   modalBtn: document.querySelector('.modal-sub-btn')  
 };
 
-console.log(refs.modalBtn);
-
-refs.signIn.addEventListener('click', handlerOpenSignInModal);
+elems.signIn.addEventListener('click', handlerOpenSignInModal);
 
 function handlerOpenSignInModal() {
   instance = basicLightbox.create(`
@@ -41,7 +39,7 @@ function handlerOpenSignInModal() {
   signInForm.addEventListener('submit', onLoginFormSubmit);
 }
 
-refs.signUp.addEventListener('click', handlerOpenSignUpModal);
+elems.signUp.addEventListener('click', handlerOpenSignUpModal);
 
 function handlerOpenSignUpModal() {
   const instance = basicLightbox.create(`
@@ -146,15 +144,15 @@ onAuthStateChanged(auth, user => {
         
     if(user){      
         localStorage.setItem('user', user.uid);
-        refs.logOutBtn.addEventListener('click', onLogOutBtnClick);              
-        refs.divSignBtns.classList.add('display');
-        refs.pageShoplist.classList.remove('display');        
-        refs.logOutBtn.classList.remove('display');
+        elems.logOutBtn.addEventListener('click', onLogOutBtnClick);              
+        elems.divSignBtns.classList.add('display');
+        elems.pageShoplist.classList.remove('display');        
+        elems.logOutBtn.classList.remove('display');
 
     }else{
-        refs.divSignBtns.classList.remove('display');
-        refs.pageShoplist.classList.add('display');        
-        refs.logOutBtn.classList.add('display');
+        elems.divSignBtns.classList.remove('display');
+        elems.pageShoplist.classList.add('display');        
+        elems.logOutBtn.classList.add('display');
         localStorage.removeItem('user')
     }    
     return
